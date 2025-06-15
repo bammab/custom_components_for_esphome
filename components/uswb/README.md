@@ -54,7 +54,7 @@ uswb:
   uart_id: uswb_uart
   send_wait_time: 200ms
   # address: 2
-  # update_interval: 10s
+  update_interval: 2s
   # revision: A1
   flow_control_pin: 18
 
