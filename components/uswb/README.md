@@ -64,6 +64,12 @@ sensor:
     uswb_id: uswb_controller
     name: "USWB11A1 Requested Current"
 
+switch:
+  - platform: uswb
+    id: send_updates
+    uswb_id: uswb_controller
+    name: "USWB11A1 Send Updates"
+
 number:
   - platform: uswb
     id: allowed_current

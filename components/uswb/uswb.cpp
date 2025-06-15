@@ -18,6 +18,9 @@ void UltimateSpeedWallbox::setup() {
   if (this->requested_current_sensor_ != nullptr) {
     this->requested_current_sensor_->publish_state(0);
   }
+  if (this->send_updates_switch_ != nullptr) {
+    this->send_updates_switch_->publish_state(true);
+  }
 }
 void UltimateSpeedWallbox::loop() {
   const uint32_t now = millis();
@@ -42,7 +45,17 @@ void UltimateSpeedWallbox::loop() {
   }
 }
 
-void UltimateSpeedWallbox::update() { this->send(); }
+void UltimateSpeedWallbox::update() {
+  if (this->send_updates_switch_ != nullptr) {
+    // if (send_updates_switch_->has_state() &&
+    //   !send_updates_switch_->state
+    if (!send_updates_switch_->state
+    ) {
+      return;
+    }
+  }
+  this->send();
+}
 
 bool UltimateSpeedWallbox::parse_response_byte_(uint8_t byte) {
   size_t at = this->rx_buffer_.size();

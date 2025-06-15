@@ -4,6 +4,7 @@
 #include "esphome/components/uart/uart.h"
 #include "esphome/components/sensor/sensor.h"
 #include "esphome/components/number/number.h"
+#include "esphome/components/switch/switch.h"
 
 #include <vector>
 
@@ -18,6 +19,7 @@ class UltimateSpeedWallbox : public uart::UARTDevice, public PollingComponent {
   
   SUB_SENSOR(requested_current)
   SUB_NUMBER(max_current)
+  SUB_SWITCH(send_updates)
 
   void setup() override;
 
